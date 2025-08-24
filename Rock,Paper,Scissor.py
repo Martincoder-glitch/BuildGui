@@ -10,22 +10,30 @@ options=("Rock","Paper","Scissors")
 def gameplay(player):
     global cs,ps,options
     computer=random.choice(options)
+    Cal4.config(text="your selection:"+player)
+    Cal5.config(text="computer selection:"+computer)
     if player==computer:
         Cal1.config(text="tie")
     elif player=="Rock"and computer=="Paper":
         Cal1.config(text="computer wins")
+        cs+=1
     elif player=="Rock"and computer=="Scissors":
         Cal1.config(text="player wins")
+        ps+=1
     elif player=="Paper"and computer=="Scissors":
         Cal1.config(text="computer wins")
+        cs+=1
     elif computer=="Rock"and player=="Paper":
         Cal1.config(text="player wins")
+        ps+=1
     elif computer=="Rock"and player=="Scissors":
         Cal1.config(text="computer wins")
+        cs+=1
     elif computer=="Paper"and player=="Scissors":
         Cal1.config(text="player wins")
-
-
+        ps+=1
+    Cal6.config(text="computer score:"+str(cs))
+    Cal7.config(text="player score:"+str(ps))
 Cal=Label(root,text="Rock,Paper,Scissor",fg="royal blue",bg="MediumOrchid4",font=("times",28,"bold"))
 Cal.grid(row=1,column=2)
 Cal1=Label(root,text="player",fg="green")
