@@ -1,0 +1,30 @@
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+root=Tk()#screen
+root.geometry("500x500")
+root.title("PIZZA APP")
+root.config(background="maroon")
+def greet():
+    name=fav.get()
+    q=qty.get()
+    messagebox.showinfo("order success",f"{name}-{q},order placed delivery in 15 mins")
+Cal=Label(root,text="Welcome to dominoes",fg="royal blue",bg="MediumOrchid4",font=("times",28,"bold"))
+Cal.grid(row=1,column=2)
+Cal1=Label(root,text="select your favourite pizza",fg="royal blue",bg="MediumOrchid4",font=("times",28,"bold"))
+Cal1.grid(row=2,pady=50,column=1)
+Cal1=Label(root,text="How much quantity",fg="royal blue",bg="MediumOrchid4",font=("times",28,"bold"))
+Cal1.grid(row=3,pady=50,column=1)
+menu=["Chicago Style","Brick Oven Pizza","Italian Pizza","Neapolitan Pizza","California Pizza","New York Style Pizza","Sicilian Pizza","Greek Pizza"]
+quantity=[1,2,3,4,5]
+qty=IntVar()
+fav=StringVar()
+pizzas=ttk.Combobox(root,textvariable=fav,width=20,value=fav)
+pizzas["values"]=menu
+pizzas.grid(row=2,column=2,padx=50)
+amount=pizzas=ttk.Combobox(root,textvariable=qty,width=20,value=qty)
+amount["values"]=quantity
+amount.grid(row=3,column=2,padx=50)
+ORDER=Button(root,text="ORDER",fg="RoyalBlue1",bg="maroon",command=greet)
+ORDER.grid(row=4,column=2,padx=15)
+root.mainloop()
