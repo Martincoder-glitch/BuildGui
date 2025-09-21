@@ -1,0 +1,27 @@
+from tkinter import *
+root=Tk()#screen
+root.geometry("500x500")
+root.title("MY APP")
+root.config(background="maroon")
+def add_items():
+    item=yr1.get()
+    listbox.insert(END,item)
+
+submit=Button(root,text="open",fg="RoyalBlue1",bg="maroon")
+submit.grid(row=3,column=2,padx=50)
+submit1=Button(root,text="add",fg="RoyalBlue1",bg="maroon",command=add_items)
+submit1.grid(row=1,column=3,padx=50)
+submit2=Button(root,text="save",fg="RoyalBlue1",bg="maroon")
+submit2.grid(row=3,column=4,padx=50)
+submit3=Button(root,text="delete",fg="RoyalBlue1",bg="maroon")
+submit3.grid(row=5,column=3,padx=50)
+yr1=Entry(root,width=75)
+yr1.grid(row=4,column=3,padx=50,pady=25)
+frame=Frame(root)
+scrollbar=Scrollbar(frame,orient="vertical")
+scrollbar.pack(side=RIGHT,fill=Y)
+listbox=Listbox(frame,width=70,yscrollcommand=scrollbar.set,bg="red")
+listbox.pack(side=LEFT,padx=5)
+scrollbar.config(command=listbox.yview)
+frame.grid(row=6,column=3,padx=50,pady=50)
+root.mainloop()
